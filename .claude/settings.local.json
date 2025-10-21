@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose:*)",
+      "Bash(sudo docker compose:*)",
+      "Bash(npm install:*)",
+      "Bash(set -a)",
+      "Bash(source .env)",
+      "Bash(set +a)",
+      "Bash(node test-supabase.js:*)",
+      "Bash(AUTO_EMAIL=false node test-supabase.js:*)",
+      "Bash(AUTO_EMAIL=true node test-supabase.js:*)",
+      "Bash(docker build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

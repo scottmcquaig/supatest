@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  supabase-test:
+    image: node:20-alpine
+    container_name: supabase-test
+    working_dir: /app
+    volumes:
+      - ./test-supabase.js:/app/test-supabase.js
+      - ./package.json:/app/package.json
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - DATABASE_URL=${DATABASE_URL}
+      - TEST_EMAIL=${TEST_EMAIL}
+      - TEST_PASSWORD=${TEST_PASSWORD}
+    command: sh -c "npm install && node test-supabase.js"
+    restart: no
+    networks:
+      - supabase-network
+
+networks:
+  supabase-network:
+    driver: bridge
