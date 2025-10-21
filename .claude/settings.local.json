@@ -10,7 +10,12 @@
       "Bash(node test-supabase.js:*)",
       "Bash(AUTO_EMAIL=false node test-supabase.js:*)",
       "Bash(AUTO_EMAIL=true node test-supabase.js:*)",
-      "Bash(docker build:*)"
+      "Bash(docker build:*)",
+      "Bash(apt-get update:*)",
+      "Bash(apt-get install:*)",
+      "Bash(sudo apt-get update:*)",
+      "Bash(sudo apt-get install:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

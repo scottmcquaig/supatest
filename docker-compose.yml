@@ -7,7 +7,10 @@ services:
     working_dir: /app
     volumes:
       - ./test-supabase.js:/app/test-supabase.js
+      - ./server.js:/app/server.js
       - ./package.json:/app/package.json
+    ports:
+      - "3000:3000"
     environment:
       - SUPABASE_URL=${SUPABASE_URL}
       - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
@@ -15,8 +18,10 @@ services:
       - DATABASE_URL=${DATABASE_URL}
       - TEST_EMAIL=${TEST_EMAIL}
       - TEST_PASSWORD=${TEST_PASSWORD}
-    command: sh -c "npm install && node test-supabase.js"
-    restart: no
+      - AUTO_EMAIL=${AUTO_EMAIL}
+      - PORT=3000
+    command: sh -c "npm install && node server.js"
+    restart: unless-stopped
     networks:
       - supabase-network
 

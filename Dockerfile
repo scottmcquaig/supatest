@@ -10,6 +10,10 @@ RUN npm ci --only=production
 
 # Copy application files
 COPY test-supabase.js .
+COPY server.js .
 
-# Run the test
-CMD ["node", "test-supabase.js"]
+# Expose port
+EXPOSE 3000
+
+# Run the server
+CMD ["node", "server.js"]
